@@ -18,13 +18,13 @@
         }
         h1 {
             text-align: center;
-            margin-top: 50px; /* Aumentado el espacio */
-            margin-bottom: 30px; /* Aumentado el espacio */
+            margin-top: 50px;
+            margin-bottom: 30px;
         }
         .writeup {
-            margin-bottom: 30px; /* Aumentado el espacio */
+            margin-bottom: 30px;
             padding: 20px;
-            background-color: #333; /* Color original */
+            background-color: #333;
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -37,12 +37,17 @@
         .writeup h2 {
             margin-top: 0;
         }
-        .writeup a {
+        .writeup .buttons {
+            display: flex;
+            align-items: center;
+        }
+        .writeup .buttons a {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
+            margin-right: 10px;
         }
-        .writeup a:hover {
+        .writeup .buttons a:hover {
             text-decoration: underline;
         }
     </style>
@@ -54,7 +59,10 @@
             <div>
                 <h2>Nombre de la máquina 1</h2>
                 <p>Descripción breve del writeup de la máquina 1.</p>
-                <a href="enlace_a_la_explicacion1.html">Ver explicación</a>
+                <div class="buttons">
+                    <a href="enlace_a_la_explicacion1.html" class="cta-btn">Ver explicación</a>
+                    <a href="descargar_maquina1.zip" class="cta-btn">Descargar máquina</a>
+                </div>
             </div>
             <img src="/assets/cara.jpg" alt="Imagen1">
         </div>
@@ -62,7 +70,10 @@
             <div>
                 <h2>Nombre de la máquina 2</h2>
                 <p>Descripción breve del writeup de la máquina 2.</p>
-                <a href="enlace_a_la_explicacion2.html">Ver explicación</a>
+                <div class="buttons">
+                    <a href="enlace_a_la_explicacion2.html" class="cta-btn">Ver explicación</a>
+                    <a href="descargar_maquina2.zip" class="cta-btn">Descargar máquina</a>
+                </div>
             </div>
             <img src="ruta_de_la_imagen2.jpg" alt="Imagen2">
         </div>
@@ -70,6 +81,7 @@
     </div>
 </body>
 </html>
+
 
 
 
