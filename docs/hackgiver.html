@@ -38,63 +38,63 @@
         <pre><code>
     sudo netdiscover
         </code></pre>
-        <img src="./imagenes/netdiscover.png" alt="Description of your first image">
+        <img src="./Imagenes/netdiscover.png" alt="Description of your first image">
         <p>&#10095; Hacemos un escaneo de puertos con nmap.</p>
         <pre><code>
     sudo nmap -p- --open -sCV --min-rate 5000 -vvv -n -Pn 192.168.1.177 -oN targeted
         </code></pre>
-        <img src="./imagenes/puertos.png" alt="Description of your first image">
+        <img src="./Imagenes/puertos.png" alt="Description of your first image">
         <p>&#10095; Entramos en el puerto 80 y vemos un mensaje el cual nos dice que tenemos que buscar la misión. <cod.</p>
-        <img src="./imagenes/mensaje.png" alt="Description of your second image">
+        <img src="./Imagenes/mensaje.png" alt="Description of your second image">
         <p>&#10095; Fuzzeamos por archivos con extension .zip y encontramos un comprimido personal.zip.</p>
-        <img src="./imagenes/gobuster.png" alt="Description of your second image">
+        <img src="./Imagenes/gobuster.png" alt="Description of your second image">
         <p>&#10095; Lo descargamos, pero al intentar descomprimirlo nos pide una password.</p>
-        <img src="./imagenes/password.png" alt="Description of your second image">
+        <img src="./Imagenes/password.png" alt="Description of your second image">
         <p>&#10095; Con zip2john sacamos el hash equivalente al comprimido .zip.</p>
-        <img src="./imagenes/hash.png" alt="Description of your second image">
+        <img src="./Imagenes/hash.png" alt="Description of your second image">
         <p>&#10095; Ahora con john crackeamos el hash.</p>
         <pre><code>
     john --wordlist=/usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt hash
         </code></pre>
         <p>&#10095; Descomprimimos el archivo y encontramos un nombre de usuario.</p>
-        <img src="./imagenes/jdalton.png" alt="Description of your second image">
+        <img src="./Imagenes/jdalton.png" alt="Description of your second image">
         <p>&#10095; Hacemos un ataque de fuerza bruta con Hydra al puerto 3306 con el usuaro jdalton y nos descubre una password.</h1>
         <pre><code>
     hydra -l jdalton -P /usr/share/wordlists/rockyou.txt mysql://192.168.1.177
         </code></pre>
-        <img src="./imagenes/hydra.png" alt="Description of your second image">
+        <img src="./Imagenes/hydra.png" alt="Description of your second image">
         <p>&#10095; Entramos al puerto 3306 mysql con el usuario jdalton y la password 12345.</p>
         <pre><code>
     mysql -h 192.168.1.177  -u jdalton -p
         </code></pre>
-        <img src="./imagenes/mysql.png" alt="Description of your second image">
+        <img src="./Imagenes/mysql.png" alt="Description of your second image">
         <p>&#10095; Listamos las bases de datos, vemos una de nombre h4ckgiver la cual usaremos.</p>
-        <img src="./imagenes/h4ckgiver.png" alt="Description of your second image">
+        <img src=".Iimagenes/h4ckgiver.png" alt="Description of your second image">
         <p>&#10095; Listamos las tablas y al volcar todo el contenido de la tabla users encontramos otra password de jdalton.</p>
-        <img src="./imagenes/macarena.png" alt="Description of your second image">
+        <img src="./Imagenes/macarena.png" alt="Description of your second image">
         <p>&#10095; Ahora con estas credenciales entramos al puerto 22 - SSH.</p>
         <pre><code>
     ssh jdalton@192.168.1.177
         </code></pre>
-        <img src="./imagenes/dentro.png" alt="Description of your second image">
+        <img src="./Imagenes/dentro.png" alt="Description of your second image">
         <p>&#10095; En el directorio home del usuario jdalton encontramos un archivo oculto de nombre nota.txt con una password dentro.</p>
-        <img src="./imagenes/nota.png" alt="Description of your second image">
-        <img src="./imagenes/murdoc.png" alt="Description of your second image">
+        <img src="./Imagenes/nota.png" alt="Description of your second image">
+        <img src="./Imagenes/murdoc.png" alt="Description of your second image">
         <p>&#10095; Nos convertimos en el usuario murdoc.</p>
-        <img src="./imagenes/sumurdoc.png" alt="Description of your second image">
+        <img src="./Imagenes/sumurdoc.png" alt="Description of your second image">
         <p>&#10095; Con sudo -l listamos los permisos sudo que tiene este usuario y vemos que puede ejecutar el comando find como sudo.</p>
-        <img src="./imagenes/find.png" alt="Description of your second image">
+        <img src="./Imagenes/find.png" alt="Description of your second image">
         <p>&#10095; Vamos a GTFOBins, filtramos por find y escogemos la opción sudo.</p>
-        <img src="./imagenes/gtfobins.png" alt="Description of your second image">
-        <img src="./imagenes/comando.png" alt="Description of your second image">
+        <img src="./Imagenes/gtfobins.png" alt="Description of your second image">
+        <img src="./Imagenes/comando.png" alt="Description of your second image">
         <p>&#10095; Ejecutamos el comando y nos convertimos en root.</p>
         <pre><code>
     sudo find . -exec /bin/sh \; -quit
         </code></pre>
-        <img src="./imagenes/root.png" alt="Description of your second image">
+        <img src="./Imagenes/root.png" alt="Description of your second image">
         <br> <!-- Salto de línea -->
         <br> <!-- Salto de línea -->
-       <img src="./imagenes/pwned.png" alt="Description of your second image">
+       <img src="./Imagenes/pwned.png" alt="Description of your second image">
     </div>
 </body>
 </html>
